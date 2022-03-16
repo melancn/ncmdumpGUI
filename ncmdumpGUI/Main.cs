@@ -146,6 +146,14 @@ namespace ncmdumpGUI
 
                 try
                 {
+                    if (!ncmDirctoryInfo.Exists)
+                    {
+                        throw new Exception("ncm目录不存在");
+                    }
+                    if (!mp3DirctoryInfo.Exists)
+                    {
+                        mp3DirctoryInfo.Create();
+                    }
                     foreach (FileInfo fileInfo in ncmDirctoryInfo.GetFiles("*.ncm"))
                     {
                         BeginInvoke(progressDialogControl.delProgressDlg, ProgressStatusType.BackgroundWorkUpdate, "转换：" + fileInfo.Name);
