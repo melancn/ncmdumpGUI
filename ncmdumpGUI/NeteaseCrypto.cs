@@ -167,6 +167,7 @@ namespace ncmdumpGUI
 
                     _progress = (alreadyProcess / totalLen) * 100d;
                 }
+                stream.Close();
             }
 
             // 写入专辑封面
